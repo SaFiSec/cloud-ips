@@ -27,7 +27,7 @@ PNX Project: Go Edition
 
 ### Workflow
 
-While in the `workspace` directory...
+(While in the `workspace` directory)
 
 **Installing a new dependency**
 
