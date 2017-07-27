@@ -17,7 +17,7 @@ PNX Project: Go Edition
 
 ### Principles
 
-* Code lives in the "workspace" directory
+* Code lives in the `workspace` directory
 
 ### Tools
 
@@ -26,6 +26,8 @@ PNX Project: Go Edition
 * **Linting** - https://github.com/golang/lint
 
 ### Workflow
+
+While in the `workspace` directory...
 
 **Installing a new dependency**
 
