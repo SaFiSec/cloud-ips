@@ -1,8 +1,6 @@
 PNX Project: Go Edition
 =======================
 
-*TODO: CircleCI status badge goes here*
-
 [![CircleCI](https://circleci.com/gh/previousnext/CHANGE_ME.svg?style=svg)](https://circleci.com/gh/previousnext/CHANGE_ME)
 
 **Maintainer**: TBD
