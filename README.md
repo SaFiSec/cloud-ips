@@ -5,13 +5,11 @@ PNX Project: Go Edition
 
 **Maintainer**: TBD
 
-This is a brief description on what the project does............ maybe include some diagrams.
+This is a brief description on what the project does.
 
 ## Resources
 
-* Resource 1
-* Reouurce 2
-* Resource 3
+* [Dave Cheney - Reproducible Builds](https://www.youtube.com/watch?v=c3dW80eO88I)
 
 ## Development
 
