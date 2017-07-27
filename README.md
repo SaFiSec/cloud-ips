@@ -3,9 +3,11 @@ PNX Project: Go Edition
 
 *TODO: CircleCI status badge goes here*
 
+[![CircleCI](https://circleci.com/gh/previousnext/CHANGE_ME.svg?style=svg)](https://circleci.com/gh/previousnext/CHANGE_ME)
+
 **Maintainer**: TBD
 
-*TODO: Write a brief description about what this project does*
+This is a brief description on what the project does............ maybe include some diagrams.
 
 ## Resources
 
