@@ -17,7 +17,7 @@ PNX Project: Go Edition
 
 ### Principles
 
-TBD
+* Code lives in the "workspace" directory
 
 ### Tools
 
