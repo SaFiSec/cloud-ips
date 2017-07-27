@@ -3,7 +3,7 @@ PNX Project: Go Edition
 
 [![CircleCI](https://circleci.com/gh/previousnext/CHANGE_ME.svg?style=svg)](https://circleci.com/gh/previousnext/CHANGE_ME)
 
-**Maintainer**: TBD
+**Maintainer**: CHANGE ME
 
 This is a brief description on what the project does.
 
