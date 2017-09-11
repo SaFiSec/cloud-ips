@@ -31,6 +31,29 @@ INFO[0000] Serving Prometheus metrics endpoint           source="main.go:23"
 
 Notice the `source="main.go:23"`, this allows us to track down the line of code.
 
+#### Metrics
+
+Metrics should be exposed to Prometheus on:
+
+* Port `9000`
+* Path `/metrics`
+
+We should use the package `github.com/prometheus/client_golang/prometheus/promhttp` and implemented with the following line:
+
+```
+var cliPrometheus = kingpin.Flag("prometheus", "Prometheus metrics endpoint").Default(":9000").OverrideDefaultFromEnvar("PROMETHEUS").String()
+
+func main() {
+        go metrics(*cliPrometheus)
+}
+
+// Helper function for serving Prometheus metrics.
+func metrics(port string) {
+        http.Handle("/metrics", promhttp.Handler())
+        log.Fatal(http.ListenAndServe(port, nil))
+}
+```
+
 ### Tools
 
 * **Dependency management** - https://getgb.io
