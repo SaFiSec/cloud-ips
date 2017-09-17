@@ -1,4 +1,4 @@
-FROM golang:1.8
+FROM golang:1.9
 ADD workspace /go
 RUN go get github.com/mitchellh/gox
 RUN make build
