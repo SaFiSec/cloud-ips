@@ -1,97 +1,78 @@
-PNX Project: Go Edition
-=======================
+Gopher
+======
 
 [![CircleCI](https://circleci.com/gh/previousnext/CHANGE_ME.svg?style=svg)](https://circleci.com/gh/previousnext/CHANGE_ME)
 
-**Maintainer**: CHANGE ME
+![Logo](/logo/small.png "Logo")
+
+**Maintainer**: Gopher
 
 This is a brief description on what the project does.
 
-## Resources
-
-* [Dave Cheney - Reproducible Builds](https://www.youtube.com/watch?v=c3dW80eO88I)
-
 ## Development
 
-### Principles
+### Getting started
 
-#### Structure
+For steps on getting started with Go:
 
-* Code lives in the `workspace` directory
+https://golang.org/doc/install
 
-#### Logging
+To get a checkout of the project run the following commands:
 
-Logging should use the package `github.com/prometheus/common/log`
+```bash
+# Make sure the parent directories exist.
+mkdir -p $GOPATH/src/github.com/previousnext
 
-This results in a log like:
+# Checkout the codebase.
+git clone git@github.com:previousnext/gopher $GOPATH/src/github.com/previousnext/gopher
 
+# Change into the project to run workflow commands.
+cd $GOPATH/src/github.com/previousnext/gopher
 ```
-INFO[0000] Serving Prometheus metrics endpoint           source="main.go:23"
-```
 
-Notice the `source="main.go:23"`, this allows us to track down the line of code.
+### Documentation
 
-#### Metrics
+See `/docs`
 
-Metrics should be exposed to Prometheus on:
+### Resources
 
-* Port `9000`
-* Path `/metrics`
-
-We should use the package `github.com/prometheus/client_golang/prometheus/promhttp` and implemented with the following line:
-
-```
-package main
-
-import (
-  "log"
-  "net/http"
-
-  "github.com/alecthomas/kingpin"
-  "github.com/prometheus/client_golang/prometheus"
-  "github.com/prometheus/client_golang/prometheus/promhttp"
-)
-
-var (
-  cliPrometheusPort = kingpin.Flag("prometheus-port", "Prometheus metrics port").Default(":9000").OverrideDefaultFromEnvar("METRICS_PORT").String()
-  cliPrometheusPath = kingpin.Flag("prometheus-path", "Prometheus metrics path").Default("/metrics").OverrideDefaultFromEnvar("METRICS_PATH").String()
-)
-
-func main() {
-  go metrics(*cliPrometheusPort, *cliPrometheusPath)
-}
-
-// Helper function for serving Prometheus metrics.
-func metrics(port, path string) {
-  http.Handle(path, promhttp.Handler())
-  log.Fatal(http.ListenAndServe(port, nil))
-}
-```
+* [Dave Cheney - Reproducible Builds](https://www.youtube.com/watch?v=c3dW80eO88I)
+* [Bryan Cantril - Debugging under fire](https://www.youtube.com/watch?v=30jNsCVLpAE&t=2675s)
+* [Sam Boyer - The New Era of Go Package Management](https://www.youtube.com/watch?v=5LtMb090AZI)
+* [Kelsey Hightower - From development to production](https://www.youtube.com/watch?v=XL9CQobFB8I&t=787s)
 
 ### Tools
 
-* **Dependency management** - https://getgb.io
-* **Build** - https://github.com/mitchellh/gox
-* **Linting** - https://github.com/golang/lint
+```bash
+# Dependency management
+go get -u github.com/golang/dep/cmd/dep
+
+# Testing
+go get -u github.com/golang/lint/golint
+
+# Release management.
+go get -u github.com/tcnksm/ghr
+
+# Build
+go get -u github.com/mitchellh/gox
+```
 
 ### Workflow
 
-(While in the `workspace` directory)
-
-**Installing a new dependency**
-
-```bash
-gb vendor fetch github.com/foo/bar
-```
-
-**Running quality checks**
+**Testing**
 
 ```bash
 make lint test
 ```
 
-**Building binaries**
+**Building**
 
 ```bash
 make build
+```
+
+**Releasing**
+
+```bash
+make release
 ```
