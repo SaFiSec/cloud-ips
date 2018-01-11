@@ -3,7 +3,7 @@ version: 2
 jobs:
   lint_test:
     docker:
-      - image: previousnext/golang:1.8
+      - image: previousnext/golang:1.9
     working_directory: /go/src/github.com/previousnext/CHANGE_ME
     environment:
       TEST_RESULTS: /tmp/test-results
@@ -38,7 +38,7 @@ jobs:
             make release-docker
   release_github:
     docker:
-      - image: previousnext/golang:1.8
+      - image: previousnext/golang:1.9
     working_directory: /go/src/github.com/previousnext/CHANGE_ME
     steps:
       - checkout
