@@ -59,6 +59,16 @@ $ docker-compose run --rm dev make build
 $ docker-compose run --rm dev bin/CHANGE_ME_linux_amd64 --help
 ```
 
+### Dependencies
+
+CHANGE_ME stores its dependencies under `vendor/`, which [Go 1.6+ will automatically recognize and load](https://golang.org/cmd/go/#hdr-Vendor_Directories). We use [`dep`](https://github.com/golang/dep) to manage the vendored dependencies.
+
+If you're developing m8s, there are a few tasks you might need to perform.
+
+For details, see:
+
+* [Adding a dependency](#adding-a-dependency)
+* [Updating a dependency](#updating-a-dependency)
 
 ### Documentation
 
@@ -71,7 +81,7 @@ See `/docs`
 * [Sam Boyer - The New Era of Go Package Management](https://www.youtube.com/watch?v=5LtMb090AZI)
 * [Kelsey Hightower - From development to production](https://www.youtube.com/watch?v=XL9CQobFB8I&t=787s)
 
-### Tools
+### Tooling
 
 ```bash
 # Dependency management
@@ -87,22 +97,52 @@ go get -u github.com/tcnksm/ghr
 go get -u github.com/mitchellh/gox
 ```
 
-### Workflow
+### Common Tasks
 
-**Testing**
+#### Adding a dependency
+
+If you're adding a dependency, you'll need to vendor it in the same Pull Request as the code that depends on it. You should do this in a separate commit from your code, as makes PR review easier and Git history simpler to read in the future.
+
+To add a dependency:
+
+Assuming your work is on a branch called `my-feature-branch`, the steps look like this:
+
+1. Vendor the new dependency.
+
+    ```bash
+    dep ensure -add github.com/foo/bar
+    ```
+
+2. Review the changes in git and commit them.
+
+#### Updating a dependency
+
+To update a dependency:
+
+1. Update the dependency.
+
+    ```bash
+    dep ensure -update github.com/foo/bar
+    ```
+
+2. Review the changes in git and commit them.
+
+#### Running quality checks
 
 ```bash
 make lint test
 ```
 
-**Building**
+#### Building binaries
 
 ```bash
 make build
 ```
 
-**Releasing**
+#### Release
 
-```bash
-make release
-```
+Release artifacts are pushed to the [github releases page](https://github.com/previousnext/CHANGE_ME/releases) when tagged
+properly. Use [semantic versioning](http://semver.org/) prefixed with `v` for version scheme. Examples:
+
+- `v1.0.0`
+- `v1.1.0-beta1`
