@@ -1,6 +1,5 @@
-FROM golang:1.9
+FROM previousnext/golang:1.9
 ADD workspace /go
-RUN go get github.com/mitchellh/gox
 RUN make build
 
 FROM alpine:latest
