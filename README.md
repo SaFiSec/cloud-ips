@@ -1,7 +1,7 @@
 Gopher
 ======
 
-[![CircleCI](https://circleci.com/gh/previousnext/CHANGE_ME.svg?style=svg)](https://circleci.com/gh/previousnext/CHANGE_ME)
+[![CircleCI](https://circleci.com/gh/previousnext/gopher.svg?style=svg)](https://circleci.com/gh/previousnext/gopher)
 
 ![Logo](/logo/small.png "Logo")
 
@@ -19,24 +19,24 @@ To work on this project you will first need Go installed on your machine.
 
 First make sure Go is properly installed and that a GOPATH has been set. You will also need to add $GOPATH/bin to your $PATH. For steps on getting started with Go: https://golang.org/doc/install
 
-Next, using Git, clone this repository into $GOPATH/src/github.com/previousnext/CHANGE_ME. All the necessary dependencies are either vendored or automatically installed, so you just need to type `make test`. This will run the tests and compile the binary. If this exits with exit status 0, then everything is working!
+Next, using Git, clone this repository into $GOPATH/src/github.com/previousnext/gopher. All the necessary dependencies are either vendored or automatically installed, so you just need to type `make test`. This will run the tests and compile the binary. If this exits with exit status 0, then everything is working!
 
 ```bash
-$ cd "$GOPATH/src/github.com/previousnext/CHANGE_ME"
+$ cd "$GOPATH/src/github.com/previousnext/gopher"
 $ make test
 ```
 
-To compile a development version of CHANGE_ME, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
+To compile a development version of gopher, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
 
 ```bash
 $ make build
 ...
 
 # Linux:
-$ bin/CHANGE_ME_linux_amd64 --help
+$ bin/gopher_linux_amd64 --help
 
 # OSX:
-$ bin/CHANGE_ME_darwin_amd64 --help
+$ bin/gopher_darwin_amd64 --help
 ```
 
 #### Easy Setup
@@ -49,19 +49,19 @@ Using Git, clone this repo on your local machine. Run the test suite to ensure t
 $ docker-compose run --rm dev make test
 ```
 
-To compile a development version of CHANGE_ME, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
+To compile a development version of gopher, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
 
 ```bash
 $ docker-compose run --rm dev make build
 
 ...
 
-$ docker-compose run --rm dev bin/CHANGE_ME_linux_amd64 --help
+$ docker-compose run --rm dev bin/gopher_linux_amd64 --help
 ```
 
 ### Dependencies
 
-CHANGE_ME stores its dependencies under `vendor/`, which [Go 1.6+ will automatically recognize and load](https://golang.org/cmd/go/#hdr-Vendor_Directories). We use [`dep`](https://github.com/golang/dep) to manage the vendored dependencies.
+gopher stores its dependencies under `vendor/`, which [Go 1.6+ will automatically recognize and load](https://golang.org/cmd/go/#hdr-Vendor_Directories). We use [`dep`](https://github.com/golang/dep) to manage the vendored dependencies.
 
 If you're developing m8s, there are a few tasks you might need to perform.
 
@@ -141,7 +141,7 @@ make build
 
 #### Release
 
-Release artifacts are pushed to the [github releases page](https://github.com/previousnext/CHANGE_ME/releases) when tagged
+Release artifacts are pushed to the [github releases page](https://github.com/previousnext/gopher/releases) when tagged
 properly. Use [semantic versioning](http://semver.org/) prefixed with `v` for version scheme. Examples:
 
 - `v1.0.0`

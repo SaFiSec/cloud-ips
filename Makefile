@@ -2,11 +2,11 @@
 
 export CGO_ENABLED=0
 
-PROJECT=github.com/previousnext/CHANGE_ME
+PROJECT=github.com/previousnext/gopher
 
 # Builds the project.
 build:
-	gox -os='linux darwin' -arch='amd64' -output='bin/CHANGE_ME_{{.OS}}_{{.Arch}}' -ldflags='-extldflags "-static"' $(PROJECT)
+	gox -os='linux darwin' -arch='amd64' -output='bin/gopher_{{.OS}}_{{.Arch}}' -ldflags='-extldflags "-static"' $(PROJECT)
 
 # Run all lint checking with exit codes for CI.
 lint:
@@ -16,7 +16,7 @@ lint:
 test:
 	go test -cover ./...
 
-IMAGE=previousnext/CHANGE_ME
+IMAGE=previousnext/gopher
 VERSION=$(shell git describe --tags --always)
 
 # Releases the project Docker Hub.
