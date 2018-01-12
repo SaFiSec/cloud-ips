@@ -6,6 +6,7 @@ PROJECT=github.com/previousnext/gopher
 
 # Builds the project.
 build:
+	go generate
 	gox -os='linux darwin' -arch='amd64' -output='bin/gopher_{{.OS}}_{{.Arch}}' -ldflags='-extldflags "-static"' $(PROJECT)
 
 # Run all lint checking with exit codes for CI.
