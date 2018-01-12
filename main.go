@@ -6,6 +6,11 @@ import (
 	"os"
 )
 
+const (
+	// APICompatibility allows client-server tools to avoid breaking changes.
+	APICompatibility = 1
+)
+
 //go:generate go run scripts/generate-version.go
 
 func main() {
