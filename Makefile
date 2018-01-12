@@ -13,7 +13,7 @@ generate:
 	go generate
 
 # Run all lint checking with exit codes for CI.
-lint:
+lint: generate
 	golint -set_exit_status `go list ./... | grep -v /vendor/`
 
 # Run tests with coverage reporting.
