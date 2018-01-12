@@ -6,4 +6,4 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - ".:/go/src/github.com/previousnext/CHANGE_ME"
+      - ".:/go/src/github.com/previousnext/gopher"
