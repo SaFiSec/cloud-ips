@@ -9,10 +9,6 @@ import (
 	"github.com/pkg/errors"
 )
 
-const (
-	defaultVersion = "dev"
-)
-
 func main() {
 	out, _ := os.Create("version.go")
 	out.Write([]byte("package main \n\nconst (\n"))
@@ -20,7 +16,7 @@ func main() {
 	// Execute git describe to insert the version identifier.
 	version, err := execGitDescribe()
 	if err != nil {
-		version = defaultVersion
+		panic(err)
 	}
 	writeConst(out, "BuildVersion", version)
 
@@ -41,5 +37,6 @@ func execGitDescribe() (string, error) {
 	if err != nil {
 		return "", errors.Wrap(err, "Unable to determine version from git")
 	}
+
 	return strings.TrimSpace(string(out)), nil
 }
