@@ -16,7 +16,7 @@ const (
 func main() {
 	app := kingpin.New("Gopher", "Bootstrap a go utility")
 
-	cmd.Version(app, BuildVersion, BuildDate, APICompatibility)
+	cmd.Version(app, APICompatibility)
 
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 }

@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"runtime"
 
-	"gopkg.in/alecthomas/kingpin.v2"
 	"github.com/ryanuber/columnize"
+	"gopkg.in/alecthomas/kingpin.v2"
+
+	"github.com/previousnext/gopher/version"
 )
 
 type cmdVersion struct {
@@ -22,13 +24,13 @@ func (cmd *cmdVersion) run(c *kingpin.ParseContext) error {
 }
 
 // Version declares the "version" sub command.
-func Version(app *kingpin.Application, buildVersion, buildDate string, apiCompatibility int) {
+func Version(app *kingpin.Application, apiCompatibility int) {
 	cmd := cmdVersion{
 		APICompatibility: apiCompatibility,
-		BuildDate: buildDate,
-		BuildVersion: buildVersion,
-		GOARCH: runtime.GOARCH,
-		GOOS: runtime.GOOS,
+		BuildDate:        version.BuildDate,
+		BuildVersion:     version.BuildVersion,
+		GOARCH:           runtime.GOARCH,
+		GOOS:             runtime.GOOS,
 	}
 
 	app.Command("version", fmt.Sprintf("Prints %s version", app.Name)).Action(cmd.run)
