@@ -37,7 +37,7 @@ API      v2`,
 	}
 
 	for _, testCase := range remoteFilepathTests {
-		actual := RenderVersionOutput(&testCase.params)
+		actual := renderVersionOutput(&testCase.params)
 		assert.Equal(t, testCase.want, actual, testCase.comment)
 	}
 }

@@ -13,7 +13,7 @@ type cmdVersion struct {
 }
 
 func (cmd *cmdVersion) run(c *kingpin.ParseContext) error {
-	fmt.Println(RenderVersionOutput(cmd))
+	fmt.Println(renderVersionOutput(cmd))
 	return nil
 }
 
@@ -28,7 +28,7 @@ func Version(app *kingpin.Application, buildVersion, buildDate string, apiCompat
 }
 
 // RenderVersionOutput is responsible for producing the rendered version info string.
-func RenderVersionOutput(cmd *cmdVersion) string {
+func renderVersionOutput(cmd *cmdVersion) string {
 	output := []string{
 		fmt.Sprintf("Version | %s", cmd.BuildVersion),
 		fmt.Sprintf("Date | %s", cmd.BuildDate),
