@@ -12,10 +12,10 @@ import (
 
 type cmdVersion struct {
 	APICompatibility int
-	BuildDate    string
-	BuildVersion string
-	GOARCH string
-	GOOS string
+	BuildDate        string
+	BuildVersion     string
+	GOARCH           string
+	GOOS             string
 }
 
 func (cmd *cmdVersion) run(c *kingpin.ParseContext) error {

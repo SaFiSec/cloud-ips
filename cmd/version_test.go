@@ -21,10 +21,10 @@ OS       darwin
 Arch     amd64`,
 			cmdVersion{
 				APICompatibility: 1,
-				BuildDate: "2018-01-01T00:00:00+11:00",
-				BuildVersion: "v1.0.0",
-				GOARCH: "amd64",
-				GOOS: "darwin",
+				BuildDate:        "2018-01-01T00:00:00+11:00",
+				BuildVersion:     "v1.0.0",
+				GOARCH:           "amd64",
+				GOOS:             "darwin",
 			},
 		},
 		{
@@ -36,10 +36,10 @@ OS       linux
 Arch     arm6`,
 			cmdVersion{
 				APICompatibility: 2,
-				BuildDate: "2018-01-12T16:42:06+11:00",
-				BuildVersion: "v1.0.0-b715353",
-				GOARCH: "arm6",
-				GOOS: "linux",
+				BuildDate:        "2018-01-12T16:42:06+11:00",
+				BuildVersion:     "v1.0.0-b715353",
+				GOARCH:           "arm6",
+				GOOS:             "linux",
 			},
 		},
 	}
