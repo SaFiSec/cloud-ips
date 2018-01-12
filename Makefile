@@ -34,4 +34,4 @@ release-github: build
 
 release: release-docker release-github
 
-.PHONY: build lint test release-docker release-github release
+.PHONY: build lint test release-docker release-github release generate
