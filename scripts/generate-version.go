@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/previousnext/gopher/pkg/go-version"
+	"github.com/previousnext/gopher/pkg/genversion"
 )
 
 const (
@@ -16,7 +16,7 @@ func main() {
 		panic(err)
 	}
 
-	err = goversion.GenerateVersionFile(out)
+	err = genversion.GenerateVersionFile(out)
 	if err != nil {
 		panic(err)
 	}
