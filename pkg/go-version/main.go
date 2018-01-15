@@ -1,4 +1,4 @@
-package go_version
+package goversion
 
 import (
 	"io"
@@ -10,6 +10,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// VersionConstants contains values which are injected into the generated code.
 type VersionConstants struct {
 	BuildVersion string
 	BuildDate    string

@@ -1,4 +1,4 @@
-package go_version
+package goversion
 
 import (
 	"bytes"
