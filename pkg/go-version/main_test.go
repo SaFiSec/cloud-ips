@@ -37,7 +37,7 @@ func TestRenderVersionFile(t *testing.T) {
 		want, err := ioutil.ReadFile(testCase.want)
 		assert.Nil(t, err)
 
-		tmpl, err := template.New("version.go.tmpl").ParseFiles("version.go.tmpl")
+		tmpl, err := template.New("version.go.tmpl").Parse(templateContent)
 		assert.Nil(t, err)
 
 		actual := new(bytes.Buffer)
