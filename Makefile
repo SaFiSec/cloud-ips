@@ -7,7 +7,7 @@ VERSION=$(shell git describe --tags --always)
 COMMIT=$(shell git rev-list -1 HEAD)
 
 # Builds the project.
-build: generate
+build:
 	gox -os='linux darwin' \
 	    -arch='amd64' \
 	    -output='bin/gopher_{{.OS}}_{{.Arch}}' \
@@ -35,4 +35,4 @@ release-github: build
 
 release: release-docker release-github
 
-.PHONY: build lint test release-docker release-github release generate
+.PHONY: build lint test release-docker release-github release
