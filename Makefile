@@ -3,10 +3,16 @@
 export CGO_ENABLED=0
 
 PROJECT=github.com/previousnext/gopher
+VERSION=$(shell git describe --tags --always)
+COMMIT=$(shell git rev-list -1 HEAD)
 
 # Builds the project.
 build: generate
-	gox -os='linux darwin' -arch='amd64' -output='bin/gopher_{{.OS}}_{{.Arch}}' -ldflags='-extldflags "-static"' $(PROJECT)
+	gox -os='linux darwin' \
+	    -arch='amd64' \
+	    -output='bin/gopher_{{.OS}}_{{.Arch}}' \
+	    -ldflags='-extldflags "-static" -X github.com/previousnext/gopher/cmd.GitVersion=${VERSION} -X github.com/previousnext/gopher/cmd.GitCommit=${COMMIT}' \
+	    $(PROJECT)
 
 # Generate any necessary code.
 generate:
@@ -21,7 +27,6 @@ test: generate
 	go test -cover ./...
 
 IMAGE=previousnext/gopher
-VERSION=$(shell git describe --tags --always)
 
 # Releases the project Docker Hub.
 release-docker:
