@@ -14,16 +14,12 @@ build: generate
 	    -ldflags='-extldflags "-static" -X github.com/previousnext/gopher/cmd.GitVersion=${VERSION} -X github.com/previousnext/gopher/cmd.GitCommit=${COMMIT}' \
 	    $(PROJECT)
 
-# Generate any necessary code.
-generate:
-	go generate
-
 # Run all lint checking with exit codes for CI.
-lint: generate
+lint:
 	golint -set_exit_status `go list ./... | grep -v /vendor/`
 
 # Run tests with coverage reporting.
-test: generate
+test:
 	go test -cover ./...
 
 IMAGE=previousnext/gopher
