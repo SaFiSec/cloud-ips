@@ -1,0 +1,6 @@
+# Example OpenVPN  config file
+
+# Updated at {{ .Timestamp }}
+{{ range .RouteItems -}}
+push "route {{ .CIDR }} {{ .Mask }}" # {{ .Comment }}
+{{ end }}

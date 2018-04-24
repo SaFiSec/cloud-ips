@@ -8,8 +8,9 @@ import (
 )
 
 func main() {
-	app := kingpin.New("cloudfront-ip-sync-openvpn", "Bootstrap a go utility")
+	app := kingpin.New("cloudfront-ip-sync-openvpn", "Tool to render a openvpn config with cloudfront edge location IPs")
 
+	cmd.Render(app)
 	cmd.Version(app)
 
 	kingpin.MustParse(app.Parse(os.Args[1:]))

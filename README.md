@@ -9,6 +9,12 @@ cloudfront-ip-sync-openvpn
 
 This is a brief description on what the project does.
 
+## Usage
+
+```
+cloudfront-ip-sync-openvpn render --template=examples/openvpn.conf.tmpl --output=/etc/openvpn/server.conf
+```
+
 ## Development
 
 ### Getting started
