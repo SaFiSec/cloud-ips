@@ -16,24 +16,28 @@ import (
 
 )
 
+// Response is the structure of the main json response.
 type Response struct {
 	SyncToken  string   `json:"syncToken"`
 	CreateDate string   `json:"createDate"`
 	Prefixes   []Prefix `json:"prefixes"`
 }
 
+// Prefix is the substructure of the json response.
 type Prefix struct {
 	Prefix  string `json:"ip_prefix"`
 	Region  string `json:"region"`
 	Service string `json:"service"`
 }
 
+// RouteItem is the struct passed to the template.
 type RouteItem struct {
 	CIDR    string
 	Mask    string
 	Comment string
 }
 
+// TemplateData is the struct passed to the template.
 type TemplateData struct {
 	Timestamp  string
 	RouteItems []RouteItem
