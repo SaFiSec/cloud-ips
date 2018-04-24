@@ -4,5 +4,5 @@ RUN go get -u \
         github.com/golang/dep/cmd/dep \
         github.com/golang/lint/golint
 
-VOLUME /go/src/github.com/previousnext/gopher
-WORKDIR /go/src/github.com/previousnext/gopher
+VOLUME /go/src/github.com/previousnext/cloudfront-ip-sync-openvpn
+WORKDIR /go/src/github.com/previousnext/cloudfront-ip-sync-openvpn

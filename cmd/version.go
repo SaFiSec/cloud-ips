@@ -7,15 +7,15 @@ import (
 
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	"github.com/previousnext/gopher/pkg/version"
+	"github.com/previousnext/cloudfront-ip-sync-openvpn/pkg/version"
 )
 
 var (
 	// GitVersion overridden at build time by:
-	//   -ldflags='-X github.com/previousnext/gopher/cmd.GitVersion=$(git describe --tags --always)'
+	//   -ldflags='-X github.com/previousnext/cloudfront-ip-sync-openvpn/cmd.GitVersion=$(git describe --tags --always)'
 	GitVersion string
 	// GitCommit overridden at build time by:
-	//   -ldflags='-X github.com/previousnext/gopher/cmd.GitCommit=$(git rev-list -1 HEAD)'
+	//   -ldflags='-X github.com/previousnext/cloudfront-ip-sync-openvpn/cmd.GitCommit=$(git rev-list -1 HEAD)'
 	GitCommit string
 )
 

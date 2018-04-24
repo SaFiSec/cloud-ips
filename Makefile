@@ -2,7 +2,7 @@
 
 export CGO_ENABLED=0
 
-PROJECT=github.com/previousnext/gopher
+PROJECT=github.com/previousnext/cloudfront-ip-sync-openvpn
 VERSION=$(shell git describe --tags --always)
 COMMIT=$(shell git rev-list -1 HEAD)
 
@@ -10,8 +10,8 @@ COMMIT=$(shell git rev-list -1 HEAD)
 build:
 	gox -os='linux darwin' \
 	    -arch='amd64' \
-	    -output='bin/gopher_{{.OS}}_{{.Arch}}' \
-	    -ldflags='-extldflags "-static" -X github.com/previousnext/gopher/cmd.GitVersion=${VERSION} -X github.com/previousnext/gopher/cmd.GitCommit=${COMMIT}' \
+	    -output='bin/cloudfront-ip-sync-openvpn_{{.OS}}_{{.Arch}}' \
+	    -ldflags='-extldflags "-static" -X github.com/previousnext/cloudfront-ip-sync-openvpn/cmd.GitVersion=${VERSION} -X github.com/previousnext/cloudfront-ip-sync-openvpn/cmd.GitCommit=${COMMIT}' \
 	    $(PROJECT)
 
 # Run all lint checking with exit codes for CI.
@@ -22,7 +22,7 @@ lint:
 test:
 	go test -cover ./...
 
-IMAGE=previousnext/gopher
+IMAGE=previousnext/cloudfront-ip-sync-openvpn
 
 # Releases the project Docker Hub.
 release-docker:

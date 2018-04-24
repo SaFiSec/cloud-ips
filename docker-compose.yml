@@ -6,4 +6,4 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - ".:/go/src/github.com/previousnext/gopher"
+      - ".:/go/src/github.com/previousnext/cloudfront-ip-sync-openvpn"
