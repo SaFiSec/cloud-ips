@@ -79,7 +79,7 @@ func (cmd *cmdRender) run(c *kingpin.ParseContext) error {
 		sub := ipsubnet.SubnetCalculator(parts[0], mask)
 
 		data.RouteItems = append(data.RouteItems, RouteItem{
-			CIDR: r.Prefix,
+			CIDR: parts[0],
 			Mask: sub.GetSubnetMask(),
 			Comment: fmt.Sprintf("%s - %s", r.Service, r.Region),
 		})
