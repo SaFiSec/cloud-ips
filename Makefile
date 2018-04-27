@@ -2,7 +2,7 @@
 
 export CGO_ENABLED=0
 
-PROJECT=github.com/previousnext/cloudfront-ip-sync-openvpn
+PROJECT=github.com/previousnext/cloud-ips
 VERSION=$(shell git describe --tags --always)
 COMMIT=$(shell git rev-list -1 HEAD)
 
@@ -10,8 +10,8 @@ COMMIT=$(shell git rev-list -1 HEAD)
 build:
 	gox -os='linux darwin' \
 	    -arch='amd64' \
-	    -output='bin/cloudfront-ip-sync-openvpn_{{.OS}}_{{.Arch}}' \
-	    -ldflags='-extldflags "-static" -X github.com/previousnext/cloudfront-ip-sync-openvpn/cmd.GitVersion=${VERSION} -X github.com/previousnext/cloudfront-ip-sync-openvpn/cmd.GitCommit=${COMMIT}' \
+	    -output='bin/cloud-ips_{{.OS}}_{{.Arch}}' \
+	    -ldflags='-extldflags "-static" -X github.com/previousnext/cloud-ips/cmd.GitVersion=${VERSION} -X github.com/previousnext/cloud-ips/cmd.GitCommit=${COMMIT}' \
 	    $(PROJECT)
 
 # Run all lint checking with exit codes for CI.
@@ -22,7 +22,7 @@ lint:
 test:
 	go test -cover ./...
 
-IMAGE=previousnext/cloudfront-ip-sync-openvpn
+IMAGE=previousnext/cloud-ips
 
 # Releases the project Docker Hub.
 release-docker:

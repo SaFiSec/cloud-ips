@@ -1,7 +1,7 @@
-cloudfront-ip-sync-openvpn
+cloud-ips
 ======
 
-[![CircleCI](https://circleci.com/gh/previousnext/cloudfront-ip-sync-openvpn.svg?style=svg)](https://circleci.com/gh/previousnext/cloudfront-ip-sync-openvpn)
+[![CircleCI](https://circleci.com/gh/previousnext/cloud-ips.svg?style=svg)](https://circleci.com/gh/previousnext/cloud-ips)
 
 ![Logo](/logo/small.png "Logo")
 
@@ -11,8 +11,22 @@ This is a brief description on what the project does.
 
 ## Usage
 
+Get all AWS ip ranges for `ap-southeast-2`.
+
 ```
-cloudfront-ip-sync-openvpn render --template=examples/openvpn.conf.tmpl --output=/etc/openvpn/server.conf
+cloud-ips get --provider=aws --region=ap-southeast-2
+```
+
+Get all ip ranges for cloudfront.
+
+```
+cloud-ips get --provider=aws --service=cloudfront
+```
+
+Get all IP ranges for several us regions.
+
+```
+cloud-ips get --provider=aws --region=us-west-1 --region=us-west-2 --region=us-east-1 --region=us-east-2
 ```
 
 ## Development
@@ -25,24 +39,24 @@ To work on this project you will first need Go installed on your machine.
 
 First make sure Go is properly installed and that a GOPATH has been set. You will also need to add $GOPATH/bin to your $PATH. For steps on getting started with Go: https://golang.org/doc/install
 
-Next, using Git, clone this repository into $GOPATH/src/github.com/previousnext/cloudfront-ip-sync-openvpn. All the necessary dependencies are either vendored or automatically installed, so you just need to type `make test`. This will run the tests and compile the binary. If this exits with exit status 0, then everything is working!
+Next, using Git, clone this repository into $GOPATH/src/github.com/previousnext/cloud-ips. All the necessary dependencies are either vendored or automatically installed, so you just need to type `make test`. This will run the tests and compile the binary. If this exits with exit status 0, then everything is working!
 
 ```bash
-$ cd "$GOPATH/src/github.com/previousnext/cloudfront-ip-sync-openvpn"
+$ cd "$GOPATH/src/github.com/previousnext/cloud-ips"
 $ make test
 ```
 
-To compile a development version of cloudfront-ip-sync-openvpn, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
+To compile a development version of cloud-ips, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
 
 ```bash
 $ make build
 ...
 
 # Linux:
-$ bin/cloudfront-ip-sync-openvpn_linux_amd64 --help
+$ bin/cloud-ips_linux_amd64 --help
 
 # OSX:
-$ bin/cloudfront-ip-sync-openvpn_darwin_amd64 --help
+$ bin/cloud-ips_darwin_amd64 --help
 ```
 
 #### Easy Setup
@@ -55,19 +69,19 @@ Using Git, clone this repo on your local machine. Run the test suite to ensure t
 $ docker-compose run --rm dev make test
 ```
 
-To compile a development version of cloudfront-ip-sync-openvpn, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
+To compile a development version of cloud-ips, run `make build`. This will build everything using gox and put binaries in the bin and $GOPATH/bin folders:
 
 ```bash
 $ docker-compose run --rm dev make build
 
 ...
 
-$ docker-compose run --rm dev bin/cloudfront-ip-sync-openvpn_linux_amd64 --help
+$ docker-compose run --rm dev bin/cloud-ips_linux_amd64 --help
 ```
 
 ### Dependencies
 
-cloudfront-ip-sync-openvpn stores its dependencies under `vendor/`, which [Go 1.6+ will automatically recognize and load](https://golang.org/cmd/go/#hdr-Vendor_Directories). We use [`dep`](https://github.com/golang/dep) to manage the vendored dependencies.
+cloud-ips stores its dependencies under `vendor/`, which [Go 1.6+ will automatically recognize and load](https://golang.org/cmd/go/#hdr-Vendor_Directories). We use [`dep`](https://github.com/golang/dep) to manage the vendored dependencies.
 
 If you're developing m8s, there are a few tasks you might need to perform.
 
@@ -147,7 +161,7 @@ make build
 
 #### Release
 
-Release artifacts are pushed to the [github releases page](https://github.com/previousnext/cloudfront-ip-sync-openvpn/releases) when tagged
+Release artifacts are pushed to the [github releases page](https://github.com/previousnext/cloud-ips/releases) when tagged
 properly. Use [semantic versioning](http://semver.org/) prefixed with `v` for version scheme. Examples:
 
 - `v1.0.0`

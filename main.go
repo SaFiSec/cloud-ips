@@ -3,14 +3,14 @@ package main
 import (
 	"os"
 
-	"github.com/previousnext/cloudfront-ip-sync-openvpn/cmd"
+	"github.com/previousnext/cloud-ips/cmd"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 func main() {
-	app := kingpin.New("cloudfront-ip-sync-openvpn", "Tool to render a openvpn config with cloudfront edge location IPs")
+	app := kingpin.New("cloud-ips", "Tool to fetch IP addresses for various cloud providers, regions and services")
 
-	cmd.Render(app)
+	cmd.Get(app)
 	cmd.Version(app)
 
 	kingpin.MustParse(app.Parse(os.Args[1:]))
